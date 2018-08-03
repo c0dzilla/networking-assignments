@@ -19,12 +19,13 @@ string modulo2Calculator(string divisor, string divident) {
   }
   string s = "";
   int a = 0;
-  while (temp[a] == '0') {
+  while (a<temp.length() && temp[a] == '0') {
     a++;
   }
   for (int i=a;i<temp.length();i++) {
     s+=temp[i];
   }
+  cout<<s<<endl;
   if (s.length()<divisor.length()) {
     if (s.length() == 0) return "0";
     return s;
@@ -39,6 +40,9 @@ int main() {
   cin>>msg;
   cout<<"Enter the polynomial key: ";
   cin>>poly;
+  for(int i=1;i<poly.length();i++) {
+    msg+='0';
+  }
   string msgTransmitted = modulo2Calculator(poly, msg);
   cout<<"Generated Message: "<<msg+msgTransmitted<<endl;
   cout<<"Polynomial Key: "<<poly<<endl;
